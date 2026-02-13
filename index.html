@@ -615,25 +615,25 @@ let player;
     const music = document.getElementById("music");
     
     // Create YouTube player
-    function onYouTubeIframeAPIReady(){
-        player = new YT.Player('memoryVideo', {
-            events: {
-                'onStateChange': onPlayerStateChange
-            }
-        });
-    }
+    // function onYouTubeIframeAPIReady(){
+    //     player = new YT.Player('memoryVideo', {
+    //         events: {
+    //             'onStateChange': onPlayerStateChange
+    //         }
+    //     });
+    // }
     
-    // Pause music when video plays
-    function onPlayerStateChange(event){
+    // // Pause music when video plays
+    // function onPlayerStateChange(event){
     
-        if(event.data === YT.PlayerState.PLAYING){
-            music.pause();
-        }
+    //     if(event.data === YT.PlayerState.PLAYING){
+    //         music.pause();
+    //     }
     
-        if(event.data === YT.PlayerState.PAUSED || event.data === YT.PlayerState.ENDED){
-            music.play();
-        }
-    }
+    //     if(event.data === YT.PlayerState.PAUSED || event.data === YT.PlayerState.ENDED){
+    //         music.play();
+    //     }
+    // }
     
     
     // 🔥 Smooth emotional fade-in
