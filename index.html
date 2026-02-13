@@ -3,93 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <title>Memories With You</title>
+<link rel="stylesheet" href="styles.css">
 
-<style>
-
-body{
-    margin:0;
-    font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(120deg, #fff6e5, #ffe4ec);
-    color:#444;
-}
-
-/* HERO */
-
-.hero{
-    height:70vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-}
-
-.hero h1{
-    font-size:3rem;
-    margin-bottom:10px;
-}
-
-.hero p{
-    font-size:1.2rem;
-    max-width:600px;
-}
-
-/* GALLERY */
-
-.gallery{
-    padding:60px 10%;
-    display:grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-    gap:25px;
-}
-
-.card{
-    background:white;
-    border-radius:18px;
-    overflow:hidden;
-    box-shadow:0 6px 20px rgba(0,0,0,0.08);
-    transition:0.3s;
-}
-
-.card:hover{
-    transform:translateY(-8px);
-}
-
-.card img{
-    width:100%;
-    height:260px;
-    object-fit:cover;
-}
-
-.caption{
-    padding:15px;
-    text-align:center;
-}
-
-/* MESSAGE */
-
-.message{
-    padding:80px 15%;
-    text-align:center;
-    line-height:1.8;
-}
-
-.message h2{
-    font-size:2rem;
-}
-
-/* FOOTER */
-
-footer{
-    padding:30px;
-    text-align:center;
-    font-size:0.9rem;
-}
-
-</style>
 </head>
 
 <body>
+
+    <div class="intro">
+        <h1 id="typewriter"></h1>
+    </div>
+    
 
 <section class="hero">
     <h1>The Memories We Made 💛</h1>
@@ -98,30 +21,42 @@ footer{
 </section>
 
 
-<section class="gallery">
+<section class="polaroid-gallery">
 
-<div class="card">
-    <img src="56504.jpg">
-    <div class="caption">Still laughing about this day 😂</div>
-</div>
+    <div class="polaroid">
+        <img src="images/56504.jpg" onclick="openLightbox(this)">
+        <p>Still laughing about this 😂</p>
+    </div>
 
-<div class="card">
-    <img src="photo2.jpg">
-    <div class="caption">Adventures were always better with you.</div>
-</div>
+    <div class="polaroid">
+        <img src="images/photo2.jpg">
+        <p>One of my favorite days.</p>
+    </div>
 
-<div class="card">
-    <img src="photo3.jpg">
-    <div class="caption">One of my favorite memories.</div>
-</div>
+    <div class="polaroid">
+        <img src="images/photo3.jpg">
+        <p>Adventures were better with you.</p>
+    </div>
 
-<div class="card">
-    <img src="photo4.jpg">
-    <div class="caption">Proof we can never take a normal photo.</div>
-</div>
+    <div class="polaroid">
+        <img src="images/photo4.jpg">
+        <p>Proof we can’t take normal photos.</p>
+    </div>
 
 </section>
 
+
+<section class="timeline">
+
+    <h2>Our Story 🌸</h2>
+    
+    <div class="event">✨ The day we met — and everything got brighter.</div>
+    <div class="event">😂 The moments we laughed too hard to breathe.</div>
+    <div class="event">🌍 Adventures I’ll replay forever.</div>
+    <div class="event">💛 And this is not goodbye… just see you later.</div>
+    
+    </section>
+    
 
 <section class="message">
     <h2>Not Goodbye — Just See You Later 🌸</h2>
@@ -142,5 +77,61 @@ footer{
 Made with lots of appreciation and memories 💫
 </footer>
 
+<div id="lightbox" class="lightbox">
+    <span class="close">&times;</span>
+    <img id="lightbox-img">
+</div>
+
+
+<script>
+
+    function openLightbox(img){
+        document.getElementById("lightbox").style.display="block";
+        document.getElementById("lightbox-img").src = img.src;
+    }
+    
+    document.querySelector(".close").onclick = function(){
+        document.getElementById("lightbox").style.display="none";
+    }
+    
+    document.getElementById("lightbox").onclick = function(e){
+        if(e.target !== document.getElementById("lightbox-img")){
+            document.getElementById("lightbox").style.display="none";
+        }
+    }
+    
+    const text = "Some people walk into our lives and quietly change everything...";
+let i = 0;
+
+function typeWriter(){
+    if(i < text.length){
+        document.getElementById("typewriter").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 40);
+    }
+    else{
+        setTimeout(()=>{
+            document.querySelector(".intro").style.display="none";
+        },1200);
+    }
+}
+
+typeWriter();
+
+const observer = new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+        if(entry.isIntersecting){
+            entry.target.classList.add("show");
+        }
+    });
+});
+
+document.querySelectorAll(".card, .message, .hero").forEach(el=>{
+    el.classList.add("hidden");
+    observer.observe(el);
+});
+
+    </script>
+    
 </body>
 </html>
