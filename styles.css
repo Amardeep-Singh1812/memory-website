@@ -39,7 +39,7 @@ h1, h2{
     z-index:1000;
     font-size:2rem;
     text-align:center;
-    padding:40px;
+    /* padding:40px; */
 }
 
 
@@ -67,6 +67,26 @@ h1, h2{
 
 
 /* MEMORY SECTIONS */
+
+.memory-btn {
+    margin-top: 40px;
+    padding: 14px 35px;
+    font-size: 18px;
+    font-family: 'Georgia', serif;
+    color: #fff;
+    background: linear-gradient(135deg, #f8c8dc, #f4a7c3);
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(244, 167, 195, 0.4);
+    transition: all 0.4s ease;
+}
+
+.memory-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(244, 167, 195, 0.6);
+}
+
 
 .memory-section{
     margin-top:100px;
@@ -504,4 +524,47 @@ footer{
     background: #f8c8dc;
     color: white;
     transform: scale(1.05);
+}
+
+/* ===== Remembrance Page Mobile Only ===== */
+@media (max-width: 768px) {
+
+    .remembrance-page {
+        padding: 25px 15px;
+    }
+
+    .remembrance-page h1 {
+        font-size: 22px;
+        line-height: 1.4;
+    }
+
+    .remembrance-page .timeline p {
+        font-size: 16px;
+        line-height: 1.6;
+        margin: 12px 0;
+    }
+
+    .remembrance-page .letter {
+        font-size: 17px;
+        line-height: 1.7;
+        margin-top: 30px;
+    }
+
+    .remembrance-page .memory-container {
+        padding: 5px;
+    }
+
+    .remembrance-page .end-btn,
+    .remembrance-page .back-btn {
+        width: 90%;
+        max-width: 320px;
+        padding: 14px;
+        font-size: 16px;
+        display: block;
+        margin: 40px auto 0 auto;
+    }
+}
+
+.remembrance-page {
+    overflow-x: hidden;
 }
