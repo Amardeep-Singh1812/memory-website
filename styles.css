@@ -68,6 +68,25 @@ h1, h2{
 
 /* MEMORY SECTIONS */
 
+.poem-btn {
+    margin-top: 40px;
+    padding: 14px 35px;
+    font-size: 18px;
+    font-family: 'Georgia', serif;
+    color: #fff;
+    background: linear-gradient(135deg, #f8c8dc, #f4a7c3);
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(244, 167, 195, 0.4);
+    transition: all 0.4s ease;
+}
+
+.poem-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(244, 167, 195, 0.6);
+}
+
 .memory-btn {
     margin-top: 40px;
     padding: 14px 35px;
