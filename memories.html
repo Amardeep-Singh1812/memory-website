@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Remembrance</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="remembrance-page">
+
+    <div class="memory-container">
+
+        <h1 id="mem" class="fade-in">
+            Some stories don’t end.<br>
+            They just become memories.
+        </h1>
+
+        <div class="timeline fade-in delay">
+            <p>It started quietly, like most important things do.</p>
+            <p>We didn’t force anything. We just went with the flow… and it felt right.</p>
+            <p>There were moments that seemed small at the time.</p>
+            <p>Now I realize they were everything.</p>
+
+        </div>
+
+        <div class="letter fade-in delay2">
+            <p>
+                I don’t regret us.<br>
+                I don’t resent us.<br><br>
+                I’m just grateful that for a while,<br>
+                we were each other’s world.
+            </p>
+        </div>
+
+        <button class="end-btn" onclick="endMemory()">
+            Thank you for being part of my life.
+        </button>
+
+        <button class="back-btn" onclick="goBackHome()">
+            ⟵ Back to where it all began
+        </button>
+
+
+    </div>
+
+    <audio id="remembranceMusic" loop>
+        <source src="music/song.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

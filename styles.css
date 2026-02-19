@@ -39,7 +39,32 @@ h1, h2{
     z-index:1000;
     font-size:2rem;
     text-align:center;
-    padding:40px;
+    /* padding:40px; */
+}
+
+
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.8s ease;
+}
+
+.memory-btn {
+    margin-top: 40px;
+    padding: 14px 35px;
+    font-size: 18px;
+    font-family: 'Georgia', serif;
+    color: #fff;
+    background: linear-gradient(135deg, #f8c8dc, #f4a7c3);
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(244, 167, 195, 0.4);
+    transition: all 0.4s ease;
+}
+
+.memory-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(244, 167, 195, 0.6);
 }
 
 
@@ -407,4 +432,101 @@ footer{
 .final-text.show{
     opacity:1;
     transform:translateY(0);
+}
+
+
+
+
+.remembrance-page {
+    background: linear-gradient(to bottom, #fff5f8, #ffe4ec);
+    font-family: 'Georgia', serif;
+    text-align: center;
+    padding: 40px 20px;
+    opacity: 0;
+    transition: opacity 1.5s ease;
+}
+
+.remembrance-page.loaded {
+    opacity: 1;
+}
+
+.memory-container {
+    max-width: 700px;
+    margin: auto;
+}
+
+#mem {
+    font-size: 28px;
+    margin-bottom: 40px;
+    color: #b76e79;
+}
+
+.timeline p {
+    margin: 15px 0;
+    font-size: 18px;
+    color: #555;
+}
+
+.letter {
+    margin-top: 40px;
+    font-size: 20px;
+    color: #444;
+}
+
+.end-btn {
+    margin-top: 60px;
+    padding: 12px 25px;
+    background-color: #f8c8dc;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.end-btn:hover {
+    background-color: #f4a7c3;
+}
+
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+}
+
+.delay {
+    animation-delay: 1.5s;
+}
+
+.delay2 {
+    animation-delay: 3s;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+.fade-out {
+    opacity: 0;
+    transition: opacity 1.5s ease;
+}
+
+.back-btn {
+    margin-top: 50px;
+    padding: 12px 28px;
+    font-size: 16px;
+    font-family: 'Georgia', serif;
+    color: #b76e79;
+    background: transparent;
+    border: 2px solid #f4a7c3;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+
+.back-btn:hover {
+    background: #f8c8dc;
+    color: white;
+    transform: scale(1.05);
 }
