@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Poetry Library</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="library-body">
+
+<h1 class="library-title">My Little Booklets</h1>
+
+<div class="book-shelf">
+
+<div class="book">
+
+    <div class="page cover">
+        <div class="cover-content">
+            <h2>See Yourself</h2>
+            <p>Click to begin</p>
+        </div>
+    </div>
+
+    <div class="page">
+        <div class="content romantic-text">
+            <p>
+                You asked what I see in you,<br>
+                when there’s so much to see around me.
+            </p>
+
+            <p>
+                You don’t know yourself—<br>
+                I have no idea why.
+            </p>
+
+            <p class="soft-break">
+                So please,<br>
+                see yourself through my eyes<br>
+                for a moment.
+            </p>
+        </div>
+    </div>
+
+    <div class="page">
+        <div class="content romantic-text">
+            <p>
+                Please see...,<br>
+                how beneath your hair,<br>
+                your lovely smile hides.
+            </p>
+
+            <p>
+                And the way your eyes go down<br>
+                and then up—<br>
+                It's a view I'll never get tired of.
+            </p>
+
+            <p>
+                I see your lips,<br>
+                the ones that give me lovely names.
+            </p>
+        </div>
+    </div>
+
+    <div class="page">
+        <div class="content romantic-text">
+            <p>
+                And about your heart 💗?<br>
+                What can be said?
+            </p>
+
+            <p class="emphasis">
+                It is truly wonderful.
+            </p>
+
+            <p>
+                Even if your day is rainy,
+            </p>
+
+            <p class="emphasis">
+                I’d still want to be with you.
+            </p>
+
+            <p>
+                I wouldn't ask for anything else,<br>
+                just for you to be by my side.
+            </p>
+        </div>
+    </div>
+
+    <div class="page end" onclick="resetBook(this)">
+        <div class="content end-text">
+            The End.<br>
+            <small>(Click to read again)</small>
+        </div>
+    </div>
+
+</div>
+
+<!-- <br><br> -->
+
+    <!-- SECOND BOOKLET EXAMPLE -->
+    <div class="book">
+    <div class="page cover">
+        <div class="cover-content">
+            <h2>Valentine Night</h2>
+            <p>Click to begin</p>
+        </div>
+    </div>
+
+    <div class="page">
+        <div class="content romantic-text">
+
+            <p class="soft-intro">
+                A Lucky night has finally Come,
+            </p>
+
+            <p>
+                The one whom the world desires,<br>
+                She is close to me.
+            </p>
+
+        </div>
+    </div>
+
+    <div class="page">
+        <div class="content romantic-text">
+
+            <p>
+                I have so much to say,<br>
+                yet there are still these questions in my heart.....
+            </p>
+
+            <p>
+                The things I used to say only in my dreams,
+            </p>
+
+        </div>
+    </div>
+
+    <div class="page">
+        <div class="content romantic-text">
+
+            <p class="emphasis1">
+                Should I say them all again, or not?
+            </p>
+
+            <p>
+                In your Eyes,
+            </p>
+
+            <p>
+                there is such a special Kind of glance.
+            </p>
+
+        </div>
+    </div>
+
+    <div class="page">
+        <div class="content romantic-text">
+
+            <p class="final-line">
+                That everytime I see in them,<br>
+                I feel complete.
+            </p>
+
+        </div>
+    </div>
+
+    <div class="page end">
+        <div class="content end-text">
+            The End.
+        </div>
+    </div>
+
+</div>
+    </div>
+
+</div>
+
+<script>
+document.querySelectorAll(".book").forEach(book => {
+
+    const pages = book.querySelectorAll(".page");
+    let currentPage = 0;
+
+    // Stack pages properly
+    pages.forEach((page, index) => {
+        page.style.zIndex = pages.length - index;
+    });
+
+    book.addEventListener("click", function(e) {
+
+        const rect = book.getBoundingClientRect();
+        const clickX = e.clientX - rect.left;
+        const bookWidth = rect.width;
+
+        // 👉 RIGHT SIDE (Next)
+        if (clickX > bookWidth / 2) {
+
+            // Normal forward flip
+            if (currentPage < pages.length) {
+                pages[currentPage].style.transform = "rotateY(-180deg)";
+                currentPage++;
+            }
+
+            // If already at end → reset to start
+            if (currentPage === pages.length) {
+                setTimeout(() => {
+                    pages.forEach(page => {
+                        page.style.transform = "rotateY(0deg)";
+                    });
+                    currentPage = 0;
+                }, 600); // slight delay feels natural
+            }
+        }
+
+        // 👈 LEFT SIDE (Previous)
+        else {
+            if (currentPage > 0) {
+                currentPage--;
+                pages[currentPage].style.transform = "rotateY(0deg)";
+            }
+        }
+
+    });
+
+});
+</script>
+</body>
+</html>

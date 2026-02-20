@@ -2,6 +2,10 @@ function goToRemembrance(){
     window.location.href = "memories.html";
 }
 
+function goToPoems(){
+    window.location.href = "poems.html";
+}
+
 
 // Fade in page on load
 window.addEventListener("load", function() {
@@ -59,4 +63,9 @@ function goBackHome(){
     setTimeout(()=>{
         window.location.href = "index.html";
     }, 800);
+}
+
+
+function flipPage(page) {
+    page.style.transform = "rotateY(-180deg)";
 }
